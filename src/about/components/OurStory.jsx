@@ -22,4 +22,3 @@ const OurStory = () => {
 }
 
 export default OurStory
-// https://images.pexels.com/photos/3738762/pexels-photo-3738762.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load
