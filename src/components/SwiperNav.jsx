@@ -22,8 +22,8 @@ const SwiperNav = () => {
         modules={[Navigation]}
         className="mySwiper"
       >
-        {data.map((item) => (
-            <SwiperSlide className='' key={Math.random()}>
+        {data.map((item, index) => (
+            <SwiperSlide className='' key={index}>
                   <div className='!flex items-start gap-[1rem]'>
                    <img src={item.img} alt={item.name} className='aspect-square w-[7rem] border border-red-400 object-cover rounded-[1rem]'/>
                    <div className='flex flex-col gap-[.5rem]'>

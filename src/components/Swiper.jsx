@@ -27,9 +27,9 @@ const SwiperElement = () => {
     navigation={true}
     virtual
       >
-        {data.map(({name, id, img, price}) => (
+        {data.map(({name, id, img, price}, index) => (
 
-              <SwiperSlide className='!w-[30rem] ' key={id} virtualIndex={Math.random()}>
+              <SwiperSlide className='!w-[30rem] ' key={index} virtualIndex={index}>
                 <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
                   <a href={`/products/${name.toLowerCase().split(' ').join('-')}`}>
                   <div className='h-[27rem] rounded-[1rem] bg-[#80808012] flex items-center justify-center'>
@@ -51,8 +51,8 @@ const SwiperElement = () => {
         navigation={false} slidesPerView={1} modules={[Virtual, Navigation]}
         onSwiper={setSwiperRef} virtual className="mySwiper !justify-center !self-center"
       >
-        {data.map(({name, id, img, price}) => (
-          <SwiperSlide className='!w-full !justify-center !self-center' key={id} virtualIndex={Math.random()}>
+        {data.map(({name, id, img, price}, index) => (
+          <SwiperSlide className='!w-full !justify-center !self-center' key={index} virtualIndex={index}>
             <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
              <a href={`/products/${name.toLowerCase().split(' ').join('-')}`}>
              <div className='h-[27rem] rounded-[1rem] bg-[#80808012] flex items-center justify-center'>

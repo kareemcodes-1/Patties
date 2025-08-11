@@ -34,8 +34,8 @@ const ProductPreview = ({product}) => {
 
   return (
      <div className='pt-[5rem] lg:space-x mx-[1rem]'>
-        {product.map((p) => (
-            <div className='flex items-start lg:flex-row flex-col gap-[1rem]' key={Math.random()}>
+        {product.map((p, index) => (
+            <div className='flex items-start lg:flex-row flex-col gap-[1rem]' key={index}>
 
             <div className='lg:w-[60%] w-full lg:sticky relative top-[15%]'>
             <div className='lg:h-[35rem] h-[25rem] rounded-[1rem] bg-[#80808012] flex items-center justify-center'>
