@@ -4,7 +4,7 @@ import Button from './Button'
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 // import SplitText from "../utils/Split3.min";
-import SplitText from "gsap-trial/SplitText";
+import SplitText from "gsap/SplitText";
 import {motion} from "framer-motion";
 
 gsap.registerPlugin(SplitText);
