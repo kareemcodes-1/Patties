@@ -33,12 +33,12 @@ const ProductPreview = ({product}) => {
     }
 
   return (
-     <div className='pt-[5rem] space-x'>
+     <div className='pt-[5rem] lg:space-x mx-[1rem]'>
         {product.map((p) => (
             <div className='flex items-start lg:flex-row flex-col gap-[1rem]' key={Math.random()}>
 
             <div className='lg:w-[60%] w-full lg:sticky relative top-[15%]'>
-            <div className='h-[27rem] rounded-[1rem] bg-[#80808012] flex items-center justify-center'>
+            <div className='lg:h-[35rem] h-[25rem] rounded-[1rem] bg-[#80808012] flex items-center justify-center'>
                   <img src={p.img} alt={p.name} className=' rounded-[1rem]'/>
                   </div>
             </div>
@@ -50,46 +50,49 @@ const ProductPreview = ({product}) => {
                 <p className='text-[1.1rem]'>{p.description}</p>
                
                <div className='flex items-center gap-[1rem] w-full'>
-               <button onClick={() => setSize('Double')} className={ `${size === 'Double' && '!bg-[#ff5227] !text-white'}  btn --border-orange !text-[1.2rem] !w-auto !p-[.5rem] !rounded-[2rem]`}>
+               <button onClick={() => setSize('Double')} className={ `${size === 'Double' && '!bg-[#ff5227] !text-white'}  btn --border-orange !text-[1.2rem] !w-auto inst-sans uppercase !p-[.5rem] !rounded-[2rem]`}>
                     Double
                 </button>
-                <button onClick={() => setSize('Large')} className={ `${size === 'Large' && '!bg-[#ff5227] !text-white'}  btn --border-orange !text-[1.2rem] !w-auto !p-[.5rem] !rounded-[2rem]`}>
+                <button onClick={() => setSize('Large')} className={ `${size === 'Large' && '!bg-[#ff5227] !text-white'}  btn --border-orange !text-[1.2rem] !w-auto inst-sans uppercase !p-[.5rem] !rounded-[2rem]`}>
                     Large
                 </button>
-                <button onClick={() => setSize('Small')} className={ `${size === 'Small' && '!bg-[#ff5227] !text-white'}  btn --border-orange !text-[1.2rem] !w-auto !p-[.5rem] !rounded-[2rem]`}>
+                <button onClick={() => setSize('Small')} className={ `${size === 'Small' && '!bg-[#ff5227] !text-white'}  btn --border-orange !text-[1.2rem] !w-auto inst-sans uppercase !p-[.5rem] !rounded-[2rem]`}>
                     Small
                 </button>
                </div>
 
-                <Button text={'Add to cart'} className={'!text-[1.5rem]'} type={'--border-orange'} onClick={() => addToCart(p)}/>
+                <Button text={'Add to cart'} className={'text-[1.5rem] py-[1rem]  my-[1.5rem] px-[2rem]'} type={'--border-orange'} onClick={() => addToCart(p)}/>
 
                 <div className='bg-[#f9dff2] rounded-[1rem] p-[1rem]'>
                     <h2 className='text-[2.2rem] pb-[.5rem]'>Taste our other flavors too</h2>
 
                     <div className='flex flex-col gap-[1.5rem]'>
-                    <div className='flex items-center justify-between w-full '>
+                    <div className='flex lg:flex-row flex-col lg:items-center items-start gap-[1rem] justify-between w-full '>
                         <div className='flex items-start gap-[1rem]'>
                             <img src={p.img} alt={p.name} className='border border-[#ff5227] rounded-[1rem] w-[6rem] h-[6rem] object-cover'/>
 
                         <div>
-                            <h2 className='text-[1.2rem] inst-sans font-medium'>{p.name}</h2>
-                            <span>4-Pack / ${p.price}</span>
+                            <h2 className='text-[1.2rem]'>{p.name}</h2>
+                             <span> <span className=' font-medium inst-sans'>4</span>-Pack / ${p.price}</span>
                         </div>
                         </div>
 
-                        <Button type={'--border-orange'} text={'Add'} className={'!w-[7rem] !p-[.5rem] !text-[1.5rem]'}/>
+                        <Button type={'--border-orange'} text={'Add'} className={'w-[7rem] p-[.5rem] lg:text-[1.5rem] text-[1.3rem]'}/>
                         
                     </div>
 
-                    <div className='flex items-start gap-[1rem]'>
-                        <img src={p.img} alt={p.name} className='border border-[#ff5227] rounded-[1rem] w-[6rem] h-[6rem] object-cover'/>
+                    <div className='flex lg:flex-row flex-col lg:items-center items-start gap-[1rem] justify-between w-full '>
+                        <div className='flex items-start gap-[1rem]'>
+                            <img src={p.img} alt={p.name} className='border border-[#ff5227] rounded-[1rem] w-[6rem] h-[6rem] object-cover'/>
 
                         <div>
-                            <h2 className='text-[1.2rem] inst-sans font-medium'>{p.name}</h2>
-                            <span>4-Pack / {p.price}</span>
+                            <h2 className='text-[1.2rem]'>{p.name}</h2>
+                             <span> <span className=' font-medium inst-sans'>4</span>-Pack / ${p.price}</span>
+                        </div>
                         </div>
 
-                        <Button type={'--border-orange'} text={'Add'} className={'!w-[6rem] !p-[.5rem] !text-[1.5rem]'} onClick={() => addToCart(p)}/>
+                        <Button type={'--border-orange'} text={'Add'} className={'w-[7rem] p-[.5rem] lg:text-[1.5rem] text-[1.3rem]'}/>
+                        
                     </div>
                     </div>
                 </div>
@@ -98,7 +101,7 @@ const ProductPreview = ({product}) => {
                        {accordionData.map((acc, index) => (
                           <div key={index} className={`cursor-pointer border-b border-[#ff5227] w-full pb-[1rem] transition-transform ${currentIndex === index && accordion ? 'h-auto overflow-auto' : 'h-[5rem] overflow-hidden'}`} onClick={() => handleAccordion(index)}>
                           <div className='flex items-center justify-between'>
-                              <h2 className='text-[3rem]'>{acc.title}</h2>
+                              <h2 className='lg:text-[3rem] text-[2.5rem]'>{acc.title}</h2>
 
                           <button type="button" className='border border-[#ff5227] rounded-full p-[.5rem]'><Plus /></button>
                           </div>

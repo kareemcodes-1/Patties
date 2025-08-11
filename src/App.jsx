@@ -10,6 +10,7 @@ import Subscribe from "./components/Subscribe";
 import Footer from "./components/Footer";
 import Lenis from 'lenis'
 import { useEffect } from "react";
+import ScrollVelocity from './lib/scroll-velocity';
 import FeaturedBurgers from "./components/FeaturedBurgers";
 import Layout from "./layout";
 
@@ -25,11 +26,17 @@ function App(){
    }, []);
 
    return (
+      
       <Layout>
          <Hero />
          <FeaturedBurgers />
          <CTA />
-         <MarqueeText />
+         {/* <MarqueeText /> */}
+         <ScrollVelocity
+  texts={['100% Quality', 'Healthy Ingredients']} 
+  velocity={100} 
+  className="custom-scroll-text pilcrow "
+/>
          <Products />
          <HowTo />
          <Subscribe />

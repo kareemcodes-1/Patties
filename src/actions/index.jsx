@@ -80,8 +80,14 @@ export function CartProvider({children}){
         localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
     }
 
+    
+    function clearCart(){
+        setCartItems([]);
+        localStorage.removeItem('cartItems');
+    }
+
     return(
-        <CartContext.Provider value={{addToCart, cartItems, openModal, size, deleteItem, setSize, incrementQuantity, decrementQuantity}}>
+        <CartContext.Provider value={{addToCart, cartItems, openModal, size, deleteItem, setSize, incrementQuantity, decrementQuantity, clearCart}}>
             {children}
         </CartContext.Provider>
     )

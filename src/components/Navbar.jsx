@@ -2,6 +2,8 @@ import { Menu, ShoppingBag, Trash, X } from "lucide-react";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import SwiperNav from "./SwiperNav";
 import { useCart } from "@/actions";
+import AnimatedContent from "@/utils/animated-content";
+import Button from "./Button";
 
 const navLinks = [
   {
@@ -28,7 +30,7 @@ const Navbar = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [toggleMenu, setToggleMenu] = useState(false);
 
-  const { cartItems, openModal, deleteItem, incrementQuantity, decrementQuantity } = useCart();
+  const { cartItems, openModal, deleteItem, incrementQuantity, decrementQuantity, clearCart } = useCart();
 
   const handleScroll = useCallback(() => {
     if (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) {
@@ -46,6 +48,10 @@ const Navbar = () => {
     };
   }, []);
 
+  const handleCheckout = () => {
+    alert('Checkout is disabled for this website.')
+  }
+
   return (
     <header
       className={`${
@@ -60,9 +66,21 @@ const Navbar = () => {
               <Menu className="text-[2rem] lg:hidden block"/>
           </div>
 
+          <AnimatedContent
+            distance={20}
+            delay={1500}
+            direction="vertical"
+            reverse={false}
+            config={{ tension: 80, friction: 20 }}
+            initialOpacity={0}
+            animateOpacity
+            scale={1.1}
+            threshold={0.2}
+          >
         <a href="/">
           <h2 className="patty text-[2rem]">Patties</h2>
         </a>
+        </AnimatedContent>
       </div>
 
           <nav className="lg:block hidden">
@@ -71,6 +89,17 @@ const Navbar = () => {
           <ul className="flex items-center gap-[2.5rem]">
             {navLinks.map((link, index) => (
               <li key={index}>
+            <AnimatedContent
+             delay={1500}
+            distance={20}
+            direction="vertical"
+            reverse={false}
+            config={{ tension: 80, friction: 20 }}
+            initialOpacity={0}
+            animateOpacity
+            scale={1.1}
+            threshold={0.2}
+          >
                 <a
                   href={link.href}
                   onMouseEnter={() => setHoveredIndex(index)}
@@ -83,6 +112,7 @@ const Navbar = () => {
                 >
                   {link.title}
                 </a>
+                </AnimatedContent>
               </li>
             ))}
           </ul>
@@ -109,15 +139,29 @@ const Navbar = () => {
           </ul>
         </nav> }
 
+                
+        <AnimatedContent
+             delay={1500}
+            direction="vertical"
+            reverse={false}
+            config={{ tension: 80, friction: 20 }}
+            initialOpacity={0}
+            animateOpacity
+            scale={1.1}
+            threshold={0.2}
+          >
       <div className="relative cursor-pointer">
         <div className="bg-[#ff5227] !text-white w-[1.3rem] h-[1.3rem] flex items-center justify-center rounded-full absolute top-[-.5rem] right-[-1rem]">
           <span className="text-[0.90rem]">{cartItems.length}</span>
         </div>
+
+            
         <div onClick={() => setCartModal(true)}>
           <ShoppingBag className="w-[1.5rem] h-[1.5rem]" />
 
         </div>
       </div>
+      </AnimatedContent>
 
       {cartModal || openModal ? (
         <div
@@ -143,7 +187,8 @@ const Navbar = () => {
                     key={index}
                     className="flex items-start justify-between gap-[1rem]"
                   >
-                      <img src={item.img} alt={item.name} className='aspect-square w-[7rem] border border-red-400 object-cover rounded-[1rem]'/>
+                      <div className="flex items-center gap-[1rem]">
+                        <img src={item.img} alt={item.name} className='aspect-square w-[7rem] border border-red-400 object-cover rounded-[1rem]'/>
 
                         <div className='flex flex-col gap-[1rem]'>
                            <div>
@@ -159,6 +204,7 @@ const Navbar = () => {
                                 <button className="text-[1.5rem] font-medium hover:bg-[#f9dff2] w-[30%] transition-[.4s] inst-sans" onClick={() => incrementQuantity(item)}>+</button>
                            </div>
                         </div>
+                      </div>
 
                         <div className="flex items-center flex-col gap-[1rem] relative">
                             <span>${item.price}</span>
@@ -170,10 +216,17 @@ const Navbar = () => {
                   </article>
                 ))}
 
-                <div className="">
+                <div className="mt-[2rem]">
                   <h1 className="text-[2rem]">You might like</h1>
 
                   <SwiperNav />
+                </div>
+
+                <div className="absolute bottom-[2rem] w-[90%]">
+                  <div className="flex items-center gap-[1rem]">
+                    <Button text={'Clear'} type={'--orange'} className={'p-[.8rem] w-full text-[1.3rem]'} onClick={clearCart}/>
+                    <Button text={'Checkout'} type={'--border-orange'} onClick={handleCheckout} className={'p-[.8rem] w-full text-[1.3rem]'}/>
+                </div>
                 </div>
               </div>
             </>

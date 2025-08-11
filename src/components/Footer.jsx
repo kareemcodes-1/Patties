@@ -1,24 +1,44 @@
-import React from 'react'
+import React, { useEffect } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Footer = () => {
+  useEffect(() => {
+    gsap.set(".footer", { yPercent: -50 });
+
+    const uncover = gsap.timeline({ paused: true });
+
+    uncover.to(".footer", { yPercent: 0, ease: "none" });
+
+    ScrollTrigger.create({
+      trigger: ".scroll-trigger",
+      start: "bottom bottom",
+      end: "+=50%",
+      animation: uncover,
+      scrub: true
+    });
+  }, []);
+
   return (
-    <footer className='bg-[#ff5227] p-[1rem] lg:px-[3rem] px-[1rem] w-full mt-[2rem]'>
-         <div className='flex lg:flex-row flex-col lg:gap-0 gap-[2rem] lg:items-center items-start justify-between pt-[2rem] pb-[4rem]'>
-            <div className='lg:grid flex flex-col grid-cols-2 gap-[2rem]'>
-                  <ul className='text-white flex flex-col gap-[1rem]'>
-                      <li className='w-[200px]'>123 Maple Street,
-                       Springfield, IL 62704</li>
-                       <li>(555) 123-4567</li>
-                  </ul>
 
+    <>
+      <div className="section scroll-trigger"></div>
 
-                  <ul className='text-white w-[260px]'>
-                      <li>Monday - Friday:
-                      12:00 PM - 10:00 PM</li>
+     <div className='overflow-hidden'>
+     <footer className="footer z-[-1] bg-[#ff5227] p-[1rem] lg:px-[3rem] px-[1rem] w-full mt-[2rem]">
+          <div className=" flex lg:flex-row flex-col lg:gap-0 gap-[2rem] lg:items-center items-start justify-between pt-[2rem] pb-[4rem]">
+            <div className="lg:grid flex flex-col grid-cols-2 gap-[2rem]">
+              <ul className="text-white flex flex-col gap-[1rem]">
+                <li className="w-[200px]">123 Maple Street, Springfield, IL 62704</li>
+                <li>(555) 123-4567</li>
+              </ul>
 
-                      <li>Saturday - Sunday:
-                        10:00 AM - 6:00 PM</li>
-                  </ul>
+              <ul className="text-white w-[260px]">
+                <li>Monday - Friday: 12:00 PM - 10:00 PM</li>
+                <li>Saturday - Sunday: 10:00 AM - 6:00 PM</li>
+              </ul>
             </div>
 
             <div className='grid grid-cols-2 gap-[4rem]'>
@@ -90,6 +110,8 @@ const Footer = () => {
              </ul>
         </div>
     </footer>
+     </div>
+    </>
   )
 }
 

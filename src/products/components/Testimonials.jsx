@@ -4,9 +4,9 @@ import React from 'react'
 
 const Testimonials = () => {
   return (
-    <div className='space-y space-x'>
+    <div className='space-y lg:space-x mx-[1rem]'>
          <div>
-              <h1 className='text-[4rem]'>Testimonials</h1>
+              <h1 className='lg:text-[4rem] text-[3rem] mb-[1.5rem]'>Testimonials</h1>
 
               <div>
                 <TestimonialSwiper/>

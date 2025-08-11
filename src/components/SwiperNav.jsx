@@ -26,11 +26,11 @@ const SwiperNav = () => {
             <SwiperSlide className='' key={Math.random()}>
                   <div className='!flex items-start gap-[1rem]'>
                    <img src={item.img} alt={item.name} className='aspect-square w-[7rem] border border-red-400 object-cover rounded-[1rem]'/>
-                   <div className='flex flex-col'>
+                   <div className='flex flex-col gap-[.5rem]'>
                    <span className='text-red'>{item.name}</span>
                    <span>from ${item.price}</span>
 
-                     <Button text={'Add'} type={'--border-orange'} className={'!py-[.2rem] !px-[.5rem] !w-[50%] !text-[1.5rem]'} onClick={() => addToCart(item)}/>
+                     <Button text={'Add'} type={'--border-orange'} className={'py-[.2rem] w-[100%] text-[1.2rem]'} onClick={() => addToCart(item)}/>
                    </div>
                   </div>
              </SwiperSlide>
