@@ -57,19 +57,21 @@ const Hero = () => {
         <h1 ref={ref} className="lg:text-[20rem] text-[6rem] text-center overflow-hidden w-full lg:leading-[21rem] leading-[10rem] !pilcrow mx-auto flex items-center justify-center">Patties</h1>
         </div>
 
-        <motion.video
-          variants={imgAnimation}
+        <motion.div 
+        variants={imgAnimation}
           initial="hidden"
           whileInView="show"
-          // viewport={{ once: true }}
+          viewport={{ once: true }}>
+          <video
           className="w-[95%] lg:h-[50vh] h-[50vh] object-cover mx-auto rounded-[1rem]"
           src="/burger-preview.mp4"
-          // playsInline
-          // loop
-          // autoPlay
+          playsInline
+          loop
+          autoPlay
           preload="auto"
           muted
         />
+        </motion.div>
         {/* <div className='absolute text-center flex items-center gap-[1.5rem] lg:top-[0%] top-[7rem] lg:p-0 p-[1rem] justify-center flex-col lg:left-[15rem] lg:translate-y-[50%]'>
            <div>
              <h1 className='lg:text-[5rem] text-[3rem] text-white text-center lg:w-[800px] w-full'>Savor the warmth of our new burger lineup!</h1>
