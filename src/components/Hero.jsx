@@ -63,7 +63,7 @@ const Hero = () => {
           whileInView="show"
           viewport={{ once: true }}
           className="w-[95%] lg:h-[50vh] h-[50vh] object-cover mx-auto rounded-[1rem]"
-          src="https://videos.pexels.com/video-files/8879537/8879537-sd_960_506_25fps.mp4"
+          src="/burger-preview.mp4"
           preload="true"
           playsInline
           loop
