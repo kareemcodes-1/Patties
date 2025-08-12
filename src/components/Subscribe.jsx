@@ -18,7 +18,7 @@ const Subscribe = () => {
   return (
     <div className='lg:mx-[2rem] mx-[1rem] my-[1rem] mt-[2rem]'>
         <h2 className='lg:block hidden lg:text-[5rem] text-[3rem]'>Subscribe to get 10% off.</h2>
-          <h2 className='lg:hidden block lg:text-[5rem] text-[3rem] mb-[1rem]'>Subscribe to us.</h2>
+          <h2 className='lg:hidden block lg:text-[5rem] text-[3rem] mb-[1rem]'>Subscribe to us</h2>
         <form onSubmit={handleSubmit} className='flex lg:flex-row flex-col items-start justify-center gap-[2rem]'>
             <div>
             <div className='border border-[#ff5227] p-[1rem] rounded-[1rem] w-[100%]'>

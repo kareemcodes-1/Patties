@@ -9,7 +9,7 @@ const Contact = () => {
               <img src="https://images.pexels.com/photos/3738762/pexels-photo-3738762.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="Stop_by" className='rounded-[1rem] lg:h-auto h-[20rem] object-cover' />
 
               <div className='bg-[#f9dff2] rounded-[1rem] flex items-center flex-col justify-center p-[1rem]'> 
-                   <h2 className='text-[5rem] text-center'>Stop by!</h2>
+                   <h2 className='lg:text-[5rem] text-[4rem] text-center'>Stop by!</h2>
                    <div className='text-center'>
                        <p>123 Maple Street, Springfield, IL 62704</p>
                        <p>(555) 123-4567</p>
@@ -22,7 +22,7 @@ const Contact = () => {
 
          <div className='mt-[2rem] lg:mx-[2rem] mx-[1rem] lg:grid flex flex-col grid-cols-2 gap-[2rem]'>
                <div>
-                   <h2 className='lg:text-[5rem] text-[4rem] mb-[1rem]'>Drop us a line</h2>
+                   <h2 className='lg:text-[5rem] text-[3.5rem] mb-[1rem]'>Drop us a line</h2>
                    <form className='flex flex-col gap-[2rem]'>
                         <div className='border-b border-[#ff5227] w-full'>
                              <input type="text" name="" id="" className='bg-transparent w-full text-[1.5rem]' placeholder='Your name' />

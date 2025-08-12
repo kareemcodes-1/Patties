@@ -4,6 +4,9 @@ import SwiperNav from "./SwiperNav";
 import { useCart } from "@/actions";
 import AnimatedContent from "@/utils/animated-content";
 import Button from "./Button";
+import gsap from "gsap";
+
+
 
 const navLinks = [
   {
@@ -30,6 +33,8 @@ const Navbar = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [toggleMenu, setToggleMenu] = useState(false);
 
+  const navRef = useRef(null);
+
   const { cartItems, openModal, deleteItem, incrementQuantity, decrementQuantity, clearCart } = useCart();
 
   const handleScroll = useCallback(() => {
@@ -48,6 +53,17 @@ const Navbar = () => {
     };
   }, []);
 
+  useEffect(() => {
+  if (toggleMenu && navRef.current) {
+    gsap.fromTo(
+      navRef.current,
+      { y: 100, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" }
+    );
+  }
+}, [toggleMenu]);
+
+
   const handleCheckout = () => {
     alert('Checkout is disabled for this website.')
   }
@@ -60,10 +76,9 @@ const Navbar = () => {
           : ""
       } fixed w-full z-[100] flex items-center justify-between py-[1rem] space-x gap-[1rem]`}
     >
-      <div className="flex items-center justify-between gap-[1rem]">
 
           <div className="cursor-pointer" onClick={() => setToggleMenu(!toggleMenu)}>
-              <Menu className="text-[2rem] lg:hidden block"/>
+              <Menu className="text-[2rem] w-[1.5rem] h-[1.5rem] lg:hidden block"/>
           </div>
 
           <AnimatedContent
@@ -77,11 +92,10 @@ const Navbar = () => {
             scale={1.1}
             threshold={0.2}
           >
-        <a href="/">
+        <a href="/" className="text-center">
           <h2 className="patty text-[2rem]">Patties</h2>
         </a>
         </AnimatedContent>
-      </div>
 
           <nav className="lg:block hidden">
 
@@ -118,15 +132,16 @@ const Navbar = () => {
           </ul>
         </nav>
 
-     {toggleMenu && <nav className="lg:hidden fixed bottom-0 left-0 right-0 h-[80vh] p-[1rem] bg-[#fff6e6]">
-          <ul className="flex flex-col items-start gap-[2.5rem]">
+     {toggleMenu && <nav ref={navRef} className="lg:hidden fixed bottom-0 left-0 right-0 h-[100vh] z-[100] p-[1rem] bg-[#fff6e6]">
+            <X className="text-[2rem] w-[2rem] h-[2rem] lg:hidden absolute right-[1rem] top-[1rem]" onClick={() => setToggleMenu(false)}/>
+          <ul className="flex flex-col items-start gap-[2.5rem] mt-[10rem]">
             {navLinks.map((link, index) => (
               <li key={index}>
                 <a
                   href={link.href}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
-                  className={`text-[2rem] transition-opacity duration-300 ${
+                  className={`text-[2.5rem] transition-opacity duration-300 ${
                     hoveredIndex !== null && hoveredIndex !== index
                       ? "opacity-30"
                       : "opacity-100"

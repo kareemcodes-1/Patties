@@ -22,7 +22,7 @@ const HowTo = () => {
 
   return (
     <div className='lg:mt-[10rem] mt-[5rem] lg:grid flex flex-col lg:grid-cols-2 lg:gap-[1rem] gap-[3rem] lg:mx-[2rem] mx-[1rem]'>
-        <div className='border border-[#ff5227] lg:p-[1rem] p-[.5rem] rounded-[1rem] flex items-center justify-center flex-col lg:gap-[3rem] gap-[2rem]'>
+        <div className='border border-[#ff5227] lg:p-[1rem] p-[1rem] rounded-[1rem] flex items-center justify-center flex-col lg:gap-[3rem] gap-[2rem]'>
             <div className='azert font-medium text-center text-[1.2rem]'>ABOUT US</div>
             {/* <h2 className='text-[2.5rem] text-center flex items-center justify-center justify-self-center'>Every batch is crafted with the finest ingredients, mixed to perfection, and baked with love to create a treat that's not just delicious, but memorable.</h2> */}
             <BlurText
@@ -30,7 +30,7 @@ const HowTo = () => {
              delay={25}
              animateBy="words"
              direction="top"
-             className="lg:text-[2.5rem] text-[2.2rem] text-center items-center justify-center lg:justify-self-center"
+             className="lg:text-[2.5rem] text-[2rem] text-center items-center justify-center lg:justify-self-center"
              />
         </div>
 

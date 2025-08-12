@@ -98,7 +98,7 @@ const Footer = () => {
 
         <div className='flex lg:flex-row flex-col lg:items-center items-start justify-between mt-[2rem]'>
              <ul className='text-white flex lg:flex-row flex-col lg:items-center items-start gap-[1rem]'>
-                 <li><a href="" className='patty text-[1.5rem] uppercase'>@2024</a></li>
+                 <li><a href="" className='patty text-[1.5rem] uppercase'><span className='lg:hidden'>PATTIES </span>@2024</a></li>
                  <li><a href="" className='patty text-[1.5rem] uppercase'>SHIPPING & DELIVERY</a></li>
                  <li><a href="" className='patty text-[1.5rem] uppercase'>PRIVACY POLICY</a></li>
              </ul>
