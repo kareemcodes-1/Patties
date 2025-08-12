@@ -38,7 +38,7 @@ const FeaturedBurgers = () => {
   return (
     <div className='lg:space-x mx-[1rem] space-y'>
               <div className='overflow-hidden'>
-              <h1 className='lg:text-[4rem] text-[3rem] lg:mb-0 mb-[1.5rem]' ref={ref}>Featured Burgers</h1>
+              <h1 className='lg:text-[4rem] text-[2.8rem] lg:mb-0 mb-[1.5rem]' ref={ref}>Featured Burgers</h1>
               </div>
 
               <div>
