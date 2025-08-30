@@ -31,7 +31,7 @@ const Products = () => {
               // markers: true
           },
           // delay: 1,
-          yPercent: 100,
+          yPercent: 200,
           stagger: 0.040,
           duration: 0.7
       })

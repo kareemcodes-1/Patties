@@ -74,12 +74,26 @@ const Navbar = () => {
         addBorder
           ? "!border-red-500 bg-[#fff6e6] border-b-[2px] transition-opacity"
           : ""
-      } fixed w-full z-[100] flex items-center justify-between py-[1rem] space-x gap-[1rem]`}
+      } fixed w-full z-[100]  py-[1rem] space-x gap-[1rem]`}
     >
-
+       <nav className="flex items-center justify-between w-full">
+         <div className="lg:hidden block">
+          <AnimatedContent
+            distance={20}
+            delay={1500}
+            direction="vertical"
+            reverse={false}
+            config={{ tension: 80, friction: 20 }}
+            initialOpacity={0}
+            animateOpacity
+            // scale={1.1}
+            threshold={0.2}
+          >
           <div className="cursor-pointer" onClick={() => setToggleMenu(!toggleMenu)}>
-              <Menu className="text-[2rem] w-[1.5rem] h-[1.5rem] lg:hidden block"/>
+              <Menu className="text-[2rem] w-[1.5rem] h-[1.5rem]"/>
           </div>
+          </AnimatedContent>
+         </div>
 
           <AnimatedContent
             distance={20}
@@ -89,10 +103,10 @@ const Navbar = () => {
             config={{ tension: 80, friction: 20 }}
             initialOpacity={0}
             animateOpacity
-            scale={1.1}
+            // scale={1.1}
             threshold={0.2}
           >
-        <a href="/" className="text-center">
+        <a href="/" className="lg:ext-start text-center">
           <h2 className="patty text-[2rem]">Patties</h2>
         </a>
         </AnimatedContent>
@@ -111,7 +125,7 @@ const Navbar = () => {
             config={{ tension: 80, friction: 20 }}
             initialOpacity={0}
             animateOpacity
-            scale={1.1}
+            // scale={1.1}
             threshold={0.2}
           >
                 <a
@@ -177,6 +191,7 @@ const Navbar = () => {
         </div>
       </div>
       </AnimatedContent>
+       </nav>
 
       {cartModal || openModal ? (
         <div

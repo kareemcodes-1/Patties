@@ -8,8 +8,8 @@ const Products = () => {
         {
             data.map(({name, category, price, id, img}) => (
                 <a href={`/products/${name.toLowerCase().split(' ').join('-')}`} className='relative' key={id}>
-                    <div className='h-[27rem] rounded-[1rem] bg-[#80808012] flex items-center justify-center'>
-                  <img src={img} alt={name} className=' w-[20rem] h-[20rem] rounded-[1rem]'/>
+                    <div className='lg:h-[27rem] h-[25rem] rounded-[1rem] bg-[#80808012] flex items-center justify-center'>
+                  <img src={img} alt={name} className=' w-[20rem] lg:h-[20rem] h-[15rem] rounded-[1rem] lg:object-contain object-cover'/>
                   </div>
                     <div className='flex items-center flex-col py-[1rem] text-[1.2rem]'>
                   <span className='text-center'>{name}</span>
